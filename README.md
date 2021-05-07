@@ -166,6 +166,8 @@ Written in [AutoHotkey][] script language, application *Hotstrings*  has many us
 # [FAQ: Introduction to hotstrings](#table-of-content "Return to Table of content")
 (Frequently Asked Questions) about *Hotstrings* application and notion of hotstrings.
 
+## [Hotstrings app? Or just hotstrings?](#table-of-content "Return to Table of content")
+Capitalized *Hotstrings* always refers to the application, that is the graphical user interface provided to make your work with hotstrings smoother. Simply *hotstrings*, with no capitalization, refer to alphanumeric strings that are used by the Autohotkey script to replace the text you wrote. To put it simply, *Hotstrings* application is a way to smoothen your experience when using *hotstrings*.
 
 ## [What are the hotstrings?](#table-of-content "Return to Table of content")
 There are two corresponding notions:
@@ -180,13 +182,15 @@ user input | options | hostring recognizer | modified input
 triggerstring | (trigger) options | → | hotstring
 alphanumeric string | alphanumeric string | → | alphanumeric string
 
+When writing, you use a short, easily recognizeable triggerstring to get a more complex hotstring as a replacement, for example writing simply *Hello* can be automatically turned into *Hello my dear friend* or a word *Degree* can be turned into the degree symbol °, depending on your own customization.
+
 So the *hostring recognizer* triggers the corresponding hotstring, taking into consideration:
 
-* user input (what user writes pressing keys of keyboard)
+* user input (what you write by pressing keys of your keyboard)
 
 * options defined for particular pair (*triggerstring*, *hotstring*)
 
-Wording convention: usually the corresponding notions *(option(s), triggestring, hotstring)* are also called as *hotstring*.
+Wording convention: usually the corresponding set of notions *(option(s), triggestring, hotstring)* is also referred to as *hotstring* as a whole.
 
 
 ## [How the *Hotstrings* application work?](#table-of-content "Return to Table of content")
@@ -194,41 +198,41 @@ Wording convention: usually the corresponding notions *(option(s), triggestring,
 
  The *Hotstrings* application:
  
-* keeps in memory definitions of hotstrings defined by user:  **(triggerstring, (trigger) option(s), hotstring)** 
+* keeps in memory definitions of hotstrings defined by the user:  **(triggerstring, (trigger) option(s), hotstring)** 
 
 and 
 
-* applies the **hotstring recognizer** to input stream of keyboard pressed keys, searching for the **triggestring** according to rules defined in **option(s)**. 
+* applies the **hotstring recognizer** to input stream of the pressed keyboard keys, searching for the **triggestring** according to rules defined in **option(s)**. 
 
 If the **triggestring** is recognized (user pressed appropriate sequence of keys) and it fits to **option(s)**: 
 
 * the **hostring** is issued,
 * the **hotstring recognizer** is reset.
 
-The concept and usage of hotstrings is based and compatible to AutoHotkey [hotstring][] notion.
+The concept and usage of hotstrings is based on and compatible to AutoHotkey [hotstring][] notion.
 
 ### In long 
-Please carefully analyse the **[Pic. 1](#picture-1-long-story-about-hotstrings-application)**. From the bottom up:
+Please carefully analyse the **[Picture 1](#picture-1-long-story-about-hotstrings-application)**. From the bottom up:
 
-1. User sits in the front of input and output devices. Let's assume for this moment that input device is just a keyboard and output device is just a computer monitor.
+1. A user sits in the front of input and output devices. Let's assume for this moment that the input device is just a keyboard and thea output device is just a computer monitor.
 
-2. The input / output devices are connected to computer which contains: 
+2. The input / output devices are connected to a computer which contains: 
 
-   i. operating system (set or universe of various applications),
-   ii. applications (set or universe of various applications).
+   i. operating system (set of various applications),
+   ii. applications (set of various applications).
    
 3. We pay special attention to: 
 
    i. operating system: *Input Buffer*.
    ii. applications: *Hotstrings* and *Microsoft Word*.
 
-The operating system exchange information with input device, character by character. Let's observe, what is going on (1-5 on the picture):
+The operating system exchanges information with the input device, character by character. Let's observe what's going on (1-5 in the picture):
 
-1. *Input*: user presses a key of keyboard. This key is send from input device to *Input Buffer*.
+1. *Input*: user presses a key of their keyboard. This key is sent from the input device to the *Input Buffer*.
 2. *Hotkeys* applications picks up information about new information in *Input Buffer*. It examines current content of the buffer with **hotstring recognizer**.
-3. If **hotstring recognizer** recognizes one of the **triggerstrings** and conditions to trigger are met (determined by **option(s)**), the content of *Input Buffer* is altered accordingly (e.g. some characters are deleted, some are inserted).
-4. Other applications, like *Microsoft Word*, get information from operating system and display / react to altered input accordingly.
-5. Next *Microsoft Word* do some operations if required and output is send to *Output* (e.g. computer monitor).
+3. If **hotstring recognizer** recognizes one of the **triggerstrings** and conditions to trigger are met (as determined by **option(s)**), the content of *Input Buffer* is altered accordingly (e.g. some characters are deleted, some are inserted).
+4. Other applications, like *Microsoft Word*, get information from the operating system and display / react to the altered input accordingly.
+5. Next *Microsoft Word* does further operations if required and output is sent to *Output* (e.g. computer monitor).
 
 ```
                   +---------------------------------------------------------------------------------+
@@ -285,21 +289,21 @@ The operating system exchange information with input device, character by charac
 ```
 ##### Picture 1. Long story about *Hotstrings* application.
 
-## [Why somobody may want to use hotstrings?](#table-of-content "Return to Table of content")
-Because they can significantly make life easier and... longer? Please see below just few supporting arguments.
+## [Why should I use hotstrings?](#table-of-content "Return to Table of content")
+Because they can significantly make life easier and... longer? And below I give just a few supporting arguments to get you started.
 
-* The triggestring can be short. Opposite to that the hotstring can be long in comparison to triggestring. As a consequence one can save some time when uses hotstrings.
+* The triggestring can be short. Opposite to that, the hotstring can be long in comparison to triggestring. As a consequence you can save time if you use hotstrings.
 
 ---
 *Example:* 
 
 triggerstring | hotstring
 ---|---
-title1 | This is very long title of technical document with lots of numeric data which are hard to remember EN 982182 : 12 and is referenced in a few places in your newly edited document
+title1 | This is very long title of technical document with lots of numeric data which are hard to remember EN 982182 : 12 and is referenced in some places in your newly edited document
 
 ---
 
-* The triggerstring can be used to trigger special symbols / letters / emoji, which are not present on a keyboard. Then it can happen that the triggerstring could be longer than actual hotstring.
+* The triggerstring can be used to trigger special symbols / letters / emoji, which are not present on a keyboard. Then it can happen that the triggerstring is actually longer than the hotstring, but you don't have to memorize any special codes.
 
 ---
 *Example:* 
@@ -321,7 +325,7 @@ email | e-mail
 
 ---
 
-* Nowadays we still frequently use keyboard as input device to so called personal computer. This computer is not so "personal" as you can't easily define system wide (working in any application) triggering your personal hotstrings. 
+* Nowadays we still frequently use keyboard as an input device to a so called personal computer. This computer is not so "personal" as you can't easily define system-wide (working in any application) triggers for your personal hotstrings. 
 
 ---
 *Example:*
@@ -331,16 +335,18 @@ fs@ | `FirstName.SecondName@yourhosting.com`
 
 ---
 
-So *let's make your PC really personal (again)*. Now with use of hotstrings and Hotstring application.
+So *let's make your PC really personal (again)*. Now with use of hotstrings and the Hotstrings application.
 
 
-## [Why somebody may want to use *Hotstrings* application?](#table-of-content "Return to Table of content")
-Because it doesn't require much knowledege and text editing to run your own hotstrings. *Hotstrings* application can be run even without installation (e.g. from USB pendrive, run **Hotstrings.exe**). Thanks to GUI (Graphical User Interface) you will master defining and applying of your own hotstrings in a blink of an eye 😉.
+## [Why should I use *Hotstrings* application?](#table-of-content "Return to Table of content")
+Because it makes your life much easier. You don't have to have any specific technical knowledge or text-editing skills to develop your own hotstring set to use in everyday life. The application can be run without installation as an .exe file, even portable version from a USB pendrive.
+User-friendly graphical interface will have you master defining and applying your own hotstrings in a blink of an eye 😉
 
-The alternative, traditional way, is based on text file edition, when hotstrings are prepared in AutoHotkey script (text file with .ahk extension), keeping attention to syntax of AutoHotkey syntax. Definitely this is at most flexible way, but do we need that to define auto-replace hotstrings?
+The alternative, traditional way, is based on text file editing, when hotstrings are prepared in AutoHotkey script (text file with .ahk extension), keeping attention to syntax of AutoHotkey syntax. It requires much more knowledge to get started and is prone to cause more errors. Definitely, this is at most flexible way, but do we need that to define auto-replace hotstrings?
 
 
-## [How to reset the hotstring recognizer?](#table-of-content "Return to Table of content")
+## [How do I reset the hotstring recognizer?](#table-of-content "Return to Table of content")
+If you started entering a triggerstring and you want to stop it or you got stuck with a triggerstring tip menu, you can try one (or all) of the following methods:
 - pressing of some keys immediately resets the **hotstring recognizer**, e.g.: \<→\>, \<←\>, \<↑\>, \<↓\>, \<PageUp\>, \<PageDown\>, \<Home\>, \<End\>;
 - entering the **EndChar**;
 - switching to another window;
@@ -349,7 +355,7 @@ The alternative, traditional way, is based on text file edition, when hotstrings
 
 ---
 
-# [Installation of *Hotstrings* application](#table-of-content "Return to Table of content")
+# [How do I install the *Hotstrings* application](#table-of-content "Return to Table of content")
 The *Hotstrings* application can be downloaded from [Github (Hotstrings)][]. The project structure:
 
 
@@ -368,16 +374,16 @@ The *Hotstrings* application can be downloaded from [Github (Hotstrings)][]. The
 
 **Hint**. At the moment it's mandatory to run the *Hotstrings* application to keep above structure. It means there must be created the *Libraries* folder and *Config.ini* file must be present just aside the *Hotstrings* executable or .ahk file.
 
-**Hint**. One can run *Hotstrings* application without installation of [AutoHotkey][] environment. In that case just run *Hotstrings.exe*. Nevertheless installation of [AutoHotkey][] environment is recommended.
+**Hint**. You can run *Hotstrings* application without installation of [AutoHotkey][] environment. In that case just run *Hotstrings.exe*. Nevertheless, installation of [AutoHotkey][] environment is recommended.
 
-# [The first run of *Hotstrings* application](#table-of-content "Return to Table of content")
-In order to run the *Hotstrings* application after downloading of all the files just mark the *Hotstrings.ahk* file or *Hostrings.exe* file in your favorite file browser and hit <Enter>. Nothing special should happen as *Hotstrings* application starts in minimized form. The only visible occurrence is default icon visible in *System Tray*. (You can access the *System Tray* with your keyboard by pressing # + B shortcut and preśing <Enter>):
+# [Starting-up](#table-of-content "Return to Table of content")
+In order to run the *Hotstrings* application after downloading all the files just mark the *Hotstrings.ahk* file or *Hostrings.exe* file in your favorite file browser and hit <Enter>. Nothing special should happen as *Hotstrings* application starts in minimized form. The only visible occurrence is the default icon visible in *System Tray*. (You can access the *System Tray* with your keyboard by pressing # + B shortcut and preśing <Enter>):
 
 ![Example of system tray][]
 
-Now *Hotstrings* application runs in its default mode: **running mode**. All the (triggerstring, hotstring) pairs are activated, operating system wide. So no matter in which text window is currently active pointer, one can already benefit from loaded (if any) libraries of hostrings. Enjoy!
+Now *Hotstrings* application runs in default mode: **running mode**. All the (triggerstring, hotstring) pairs are activated, system-wide. So no matter where your ointer is, you can already benefit from loaded (if any) libraries of hostrings. Enjoy!
 
-The second mode of operation requires GUI (Graphical User Interface) window, because then one can define new hotstrings or edit existing. When GUI window is active still all the (triggerstring, hotstring) pairs are ative, just GUI window is additionally available.
+The second mode of operation requires GUI (Graphical User Interface) window, because then you can define new hotstrings or edit existing. When GUI window is active still all the (triggerstring, hotstring) pairs are ative, just GUI window is additionally available.
 
 
 ## Let's define the first hotstring
